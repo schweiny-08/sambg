@@ -2,7 +2,7 @@
 
 import { mkdirSync} from 'fs';
 import * as path from 'path';
-import { initPrompt } from './initProject';
+import { initNodeProject, initProject } from './initProject';
 
 // function generateSamRepo(projectName: string): void {
 //     const projectPath = path.join(process.cwd(), projectName);
@@ -15,4 +15,4 @@ import { initPrompt } from './initProject';
 // if (projectName) generateSamRepo(projectName);
 // else console.error('Please provide a project name.')
 
-initPrompt();
+initNodeProject();

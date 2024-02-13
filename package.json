@@ -14,5 +14,7 @@
   },
   "bin": {
     "sambg": "dist/index.js"
+  },
+  "dependencies": {
   }
 }
