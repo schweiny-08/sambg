@@ -3,18 +3,24 @@
   "version": "1.0.0",
   "description": "Boilerplate generator for AWS SAM ",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "tsc"
   },
   "author": "Andrew Magri",
-  "license": "GNU GENERAL PUBLIC LICENSE",
+  "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
   },
   "bin": {
     "sambg": "dist/index.js"
-  },
-  "dependencies": {
   }
 }

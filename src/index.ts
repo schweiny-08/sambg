@@ -1,18 +1,25 @@
 #! /usr/bin/env node
 
-import { mkdirSync} from 'fs';
-import * as path from 'path';
-import { initNodeProject, initProject } from './initProject';
+import chalk from 'chalk';
+import { initConfig } from './initConfig';
+import { isProjectRoot } from './utils/isProjectRoot';
 
-// function generateSamRepo(projectName: string): void {
-//     const projectPath = path.join(process.cwd(), projectName);
+const subCommand = process.argv[2];
 
-//     mkdirSync(projectName);
-//     process.chdir(projectName);
-// }
+if (!isProjectRoot()) {
+  console.log(chalk.yellow('Please go to the root of your node project!'));
+  process.exit(1);
+}
 
-// const projectName = process.argv[2];
-// if (projectName) generateSamRepo(projectName);
-// else console.error('Please provide a project name.')
-
-initNodeProject();
+switch (subCommand) {
+  case 'init':
+    initConfig(process.argv[3]);
+    break;
+  default:
+    console.log('sambg <command>\n\nUsage:\n');
+    console.log(
+      chalk.grey('sambg'),
+      '\tInitialize sambg in your project with sambg.config.json'
+    );
+    break;
+}
